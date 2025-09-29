@@ -4,14 +4,16 @@ package(default_visibility = ["//visibility:public"])
 
 sh_test(
     name = "test",
+    size = "small",
+
     srcs = [
         "test.sh",
     ],
     args = [
-        "$(location @mod//:hello_bin)",
-    ]
+        "$(location @hello//:hello_bin)",
+    ],
     data = [
-        "@mod//:hello_bin",
-        "@mod//:lib",
+        "@hello//:hello_bin",
+        "@hello//:lib",
     ],
 )

@@ -9,8 +9,8 @@ bazel_dep(name = "gcc_toolchain", version = "0.9.0")
 bazel_dep(name = "rules_shell", version = "0.6.1")
 
 
-bazel_dep(name = "mod", version = "0.0.0")
+bazel_dep(name = "hello_foreign", version = "0.0.0", repo_name = "hello")
 local_path_override(
-    module_name = "mod",
+    module_name = "hello_foreign",
     path = "../",
 )

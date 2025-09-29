@@ -51,12 +51,13 @@ configure_make(
 
 sh_test(
     name = "test",
+    size = "small",
     srcs = [
         "test.sh",
     ],
     args = [
         "$(location :hello_bin)",
-    ]
+    ],
     data = [
         ":hello_bin",
         ":lib",

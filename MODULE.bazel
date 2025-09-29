@@ -23,7 +23,7 @@ http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "ht
 http_archive(
     name = "src",
     build_file = "//:src.BUILD.bazel",
-    integrity = "",
+    integrity = "sha256-zwSvhtwIUmjF9EcPuuSbGK+8Iht4CWqrhC2TSna60Ks=",
     strip_prefix = "hello-2.12",
     patch_strip = 1,
     patches = [
