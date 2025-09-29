@@ -1,0 +1,17 @@
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+
+package(default_visibility = ["//visibility:public"])
+
+sh_test(
+    name = "test",
+    srcs = [
+        "test.sh",
+    ],
+    args = [
+        "$(location @mod//:hello_bin)",
+    ]
+    data = [
+        "@mod//:hello_bin",
+        "@mod//:lib",
+    ],
+)

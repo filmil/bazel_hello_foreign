@@ -1,0 +1,64 @@
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "configure_make", "configure_make_variant")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+
+package(default_visibility = ["//visibility:public"])
+
+alias(
+    name = "lib",
+    actual = ":build_target",
+)
+
+_BINARIES = [ "hello" ]
+
+configure_make(
+    name = "build_target",
+    lib_source = "@src//:all_srcs",
+    env = {
+    },
+    out_binaries = _BINARIES,
+    #out_shared_libs = [
+        #"libasm-0.193.so",
+        #"libasm.so",
+        #"libasm.so.1",
+        #"libdw-0.193.so",
+        #"libdw.so",
+        #"libdw.so.1",
+        #"libelf-0.193.so",
+        #"libelf.so",
+        #"libelf.so.1",
+    #],
+    #out_static_libs = [
+        #"libasm.a",
+        #"libdw.a",
+        #"libelf.a",
+    #],
+    #deps = [
+        #"@zlib//:lib",
+    #],
+)
+
+
+[
+    # Generate a target for each binary, for example `//:eu-ar_bin`.
+    filegroup(
+        name = binary_name + "_bin",
+        output_group = binary_name,
+        srcs = [":lib"],
+    )
+    for binary_name in _BINARIES
+]
+
+
+sh_test(
+    name = "test",
+    srcs = [
+        "test.sh",
+    ],
+    args = [
+        "$(location :hello_bin)",
+    ]
+    data = [
+        ":hello_bin",
+        ":lib",
+    ],
+)
