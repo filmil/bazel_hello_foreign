@@ -3,6 +3,10 @@ name: "Publish to my Bazel registry"
 
 on:
   workflow_call:
+    secrets:
+      BCR_PUBLISH_TOKEN:
+        required: false
+        description: 'Optional token for BCR publishing.'
     inputs:
       tag_name:
         required: true
@@ -19,11 +23,7 @@ jobs:
     uses: "bazel-contrib/publish-to-bcr/.github/workflows/publish.yaml@v0.2.2"
     with:
       tag_name: ${{ inputs.tag_name }}
-      # This is the registry for which the PR will be open.
-      # For this module I am not using BCR, since this is not worth publishing
-      # to BCR.
       registry: filmil/bazel-registry
-      # This is the fork of `registry`. It can be the same repo.
       registry_fork: filmil/bazel-registry
       attest: false
     permissions:
