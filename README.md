@@ -3,8 +3,9 @@
 [![Publish to my Bazel registry](https://github.com/filmil/bazel_hello_foreign/actions/workflows/publish.yml/badge.svg)](https://github.com/filmil/bazel_hello_foreign/actions/workflows/publish.yml)
 [![Publish on Bazel Central Registry](https://github.com/filmil/bazel_hello_foreign/actions/workflows/publish-bcr.yml/badge.svg)](https://github.com/filmil/bazel_hello_foreign/actions/workflows/publish-bcr.yml)
 
-# `bazel`-compiled library
+# `bazel` native `hello` binary
 
+This project demonstrates a simple native Bazel C++ build of a `hello` binary. It was previously configured to use `rules_foreign_cc` but has been converted to a native build.
 
 # Bill-of-Material notices
 
