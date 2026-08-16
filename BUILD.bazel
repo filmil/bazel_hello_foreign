@@ -33,7 +33,7 @@ configure_make(
         #"libelf.a",
     #],
     #deps = [
-        #"@zlib//:lib",
+        #"@zlib//:zlib",
     #],
 )
 
