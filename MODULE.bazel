@@ -6,7 +6,9 @@ module(
 
 bazel_dep(name = "rules_foreign_cc", version = "0.15.1")
 bazel_dep(name = "rules_cc", version = "0.2.8")
-bazel_dep(name = "zlib_foreign", version = "0.0.1", repo_name = "zlib")
+# zlib from the official BCR. The former zlib_foreign module was removed
+# from the private registry as defunct.
+bazel_dep(name = "zlib", version = "1.3.2")
 bazel_dep(name = "rules_shell", version = "0.6.1")
 
 
